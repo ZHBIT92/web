@@ -4,14 +4,16 @@
 
 ### 浏览器后退时自动刷新页面
 jsp中
+```
 <%   
    response.setHeader("Pragma","no-cache");   
    response.setHeader("Cache-Control","no-cache");   
    response.setDateHeader("Expires", 0);   
    response.setHeader("Cache-Control", "no-store");   
 %>
-
+```
 js中设置刷新页面
+```
 /*浏览器后退时自动刷新页面*/
 	window.onload(){
 	if(window.name!="hasLoad"){  
@@ -20,3 +22,4 @@ js中设置刷新页面
 	}else{  
     	window.name="";  
 	}  
+```
