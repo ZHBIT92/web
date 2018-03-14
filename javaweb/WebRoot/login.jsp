@@ -5,13 +5,21 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String username="";
 String password="";
+String username1=(String)session.getAttribute("username");
+    if (username1!=null){
+          response.sendRedirect("main.jsp");
+      }
 %>
-
+<%   
+   response.setHeader("Pragma","no-cache");   
+   response.setHeader("Cache-Control","no-cache");   
+   response.setDateHeader("Expires", 0);   
+   response.setHeader("Cache-Control", "no-store");   
+%>  
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <base href="<%=basePath%>">
-    
     <title>登录</title>
 	<link type="text/css" href="Css/index.css" rel="stylesheet"  />
     <script src='Js/login.js' type="text/javascript"></script>
@@ -21,8 +29,15 @@ String password="";
     function reloadCode(){
 	document.getElementById("imagecode").src="<%=path%>/Image?"+Math.random();
    }
-</script>
-
+   /*浏览器后退时自动刷新页面*/
+	window.onload(){
+	if(window.name!="hasLoad"){  
+    	location.reload();  
+    	window.name = "hasLoad";  
+	}else{  
+    	window.name="";  
+	}  
+</script> 
 </head>
   
 <body>
@@ -45,6 +60,7 @@ String password="";
             </dd>
             <input type="submit" value="登录" > 
             <input type="button" value="重置" onclick="reset()">
+			<input type="hidden" id="refreshed" value="no"> 
 </form></div>
 </div>
 
