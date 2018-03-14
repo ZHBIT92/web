@@ -2,6 +2,11 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+String username=(String)session.getAttribute("username");
+if (username==null){
+          response.sendRedirect("login.jsp");
+      }
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -52,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    束洋洋
+                  	<%=username %>
                 </a>
                 <dl class="layui-nav-child">
                     <dd id="ui001" name="userinfo.html"><a href="javascript:;" >基本资料</a></dd>
@@ -99,7 +104,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        内容1
+                        	内容1
+<%
+	int n=0;
+	String counter =(String)application.getAttribute("counter");
+	if(counter!=null)
+	n = Integer.parseInt(counter);
+	n = n+1;
+	out.print("你是第"+n+"位访问者");
+	counter = String.valueOf(n);
+	application.setAttribute("counter",counter);
+ %>
                     </div>
                 </div>
             </div>
