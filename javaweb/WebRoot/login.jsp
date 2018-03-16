@@ -25,19 +25,21 @@ String username1=(String)session.getAttribute("username");
     <script src='Js/login.js' type="text/javascript"></script>
     <script src='Js/jquery.min.js' type="text/javascript"></script>
     <script src='Js/jquery-validate.js' type="text/javascript"></script>
-<script type="text/javascript">
-    function reloadCode(){
-	document.getElementById("imagecode").src="<%=path%>/Image?"+Math.random();
-   }
-   /*浏览器后退时自动刷新页面*/
-	window.onload(){
+<script type="text/javascript">  
+/*浏览器后退时自动刷新页面*/
+	window.onload = function(){
 	if(window.name!="hasLoad"){  
     	location.reload();  
     	window.name = "hasLoad";  
 	}else{  
     	window.name="";  
 	}  
+	}
+	 function reloadCode(){
+	document.getElementById("imagecode").src="<%=path%>/Image?"+Math.random();
+   }
 </script> 
+
 </head>
   
 <body>
@@ -63,6 +65,5 @@ String username1=(String)session.getAttribute("username");
 			<input type="hidden" id="refreshed" value="no"> 
 </form></div>
 </div>
-
 </body>
 </html>
