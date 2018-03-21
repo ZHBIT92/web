@@ -1,6 +1,7 @@
 package filter;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.Filter;
@@ -26,22 +27,39 @@ public class IpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, 
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		ServletContext context = config.getServletContext();
-        Map<String, Integer> ipMap = (Map<String, Integer>) context.getAttribute("ipMap");
-        String ip = request.getRemoteAddr();
-        if(ipMap.containsKey(ip)){
-            Integer count = ipMap.get(ip);
-            ipMap.put(ip,count+1);
-        }else{
-            ipMap.put(ip,1);
+		//获取ServletConfig
+        ServletContext sc = config.getServletContext();
+        //获取ServletContext中的map
+        Map<String,Integer> map=(Map<String, Integer>) sc.getAttribute("map");
+        //如果map不存在，说明这是第一次被访问
+        if(map==null){
+            //创建map
+            map=new LinkedHashMap<String,Integer>();
         }
-        context.setAttribute("ipMap", ipMap);
-        chain.doFilter(request, response);
+        //获取请求ip
+        String ip = request.getRemoteAddr();
+        //判断map中是否存在这个ip
+        if(map.containsKey(ip)){
+            //如果ip存在，说明这个IP已经访问过本站
+            // 获取访问次数
+            Integer count = map.get(ip);
+            //把访问次数+1
+            count++;
+            //把新的访问次数保存回去
+            map.put(ip, count);
+        }else{
+            //因为这个IP是第一次访问，所以值为1
+            map.put(ip, 1);
+        }
+        //把map放入ServletContext中
+    sc.setAttribute("map", map);
+    //放行
+    chain.doFilter(request, response);
 	}
 
-	public void init(FilterConfig arg0) throws ServletException {
+	public void init(FilterConfig config) throws ServletException {
 		// TODO Auto-generated method stub
-		this.config = arg0;
+		this.config = config;
 	}
 
 }

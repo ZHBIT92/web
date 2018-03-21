@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -47,16 +48,21 @@ String username=(String)session.getAttribute("username");
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
                         	内容1
-<%
-	int n=0;
-	String counter =(String)application.getAttribute("counter");
-	if(counter!=null)
-	n = Integer.parseInt(counter);
-	n = n+1;
-	out.print("你是第"+n+"位访问者");
-	counter = String.valueOf(n);
-	application.setAttribute("counter",counter);
- %>
+<h1>分IP统计</h1>
+
+  <table border="1" width="60%">
+    <c:forEach items="${applicationScope.map }" var="entry">
+        <tr>
+            <th>ip</th>
+            <th>数量</th>
+        </tr>
+        <tr>
+            <td>${entry.key }</td>
+            <td>${entry.value }</td>
+            
+        </tr>
+    </c:forEach>
+    </table>
                     </div>
                 </div>
             </div>
