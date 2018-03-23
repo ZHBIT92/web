@@ -25,7 +25,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;"><i class="layui-icon" style="margin-right: 5px">&#xe620;</i>系统管理</a>
                     <dl class="layui-nav-child">
-                        <dd id="S001" name="form.html"><a href="javascript:;">用户管理</a></dd>
+                        <dd id="S001" name="form.jsp"><a href="javascript:;">添加用户</a></dd>
                         <dd id="S002" name="user.jsp"><a href="javascript:;">角色管理</a></dd>
                         <dd id="S003" name="page.html"><a href="javascript:;">公告管理</a></dd>
                         <dd id="S004" name="http://www.shuyangyang.com.cn"><a href="javascript:;">作者网站</a></dd>
