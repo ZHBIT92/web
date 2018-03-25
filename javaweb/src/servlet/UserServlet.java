@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,22 +48,22 @@ public class UserServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");//解决post方式参数传递的参数乱码  
 		
 		UsersDAO dao=new UsersDAO();
-
+		List list = dao.getAllItems();
 		/*System.out.println(str);*/
-		Map<String, Object> user = new HashMap<String, Object>();
-		user.put("code", 0);
-		user.put("msg", "");
-		user.put("count", 1000);
-		user.put("data", dao.getAllItems());
-		
-		System.out.println(user);
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("code", 0);
+		data.put("msg", "");
+		data.put("count", 1000);
+		data.put("data", list);
+		/*System.out.println(data);*/
 		
 		Gson gson = new Gson();
-		/*System.out.println(gson.toJson(user));*/
+		System.out.println(gson.toJson(data));
 		
 		response.setContentType("text/json");
-		response.getWriter().write(gson.toJson(user));
+		response.getWriter().write(gson.toJson(data));
 		response.getWriter().flush();
 		response.getWriter().close();
+		
 	}
 }

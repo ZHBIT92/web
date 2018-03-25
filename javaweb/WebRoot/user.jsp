@@ -29,14 +29,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 layui.use('table', function(){
   var table = layui.table;
   
-   table.render({
+  table.render({
     elem: '#test'
-    ,url:'/UserServlet'
+    ,url:'http://localhost:8080/web/UserServlet'
+    ,page: true
     ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
     ,cols: [[
       {field:'userid', width:80, title: 'ID', sort: true}
       ,{field:'username', width:80, title: '用户名'}
-      ,{field:'password', width:137, title: '财富'}
+      ,{field:'password', width:137, title: '密码'}
     ]]
   });
   
