@@ -36,8 +36,11 @@ layui.use('table', function(){
     ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
     ,cols: [[
       {field:'userid', width:80, title: 'ID', sort: true}
-      ,{field:'username', width:80, title: '用户名'}
+      ,{field:'username', width:80, title: '用户名', sort: true}
       ,{field:'password', width:137, title: '密码'}
+      ,{field:'power', width:80, title: '权限'}
+      ,{field:'sex', width:137, title: '性别', sort: true}
+      ,{field:'text', title: '个性签名', sort: true}
     ]]
   });
   

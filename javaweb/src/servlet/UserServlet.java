@@ -53,12 +53,11 @@ public class UserServlet extends HttpServlet {
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("code", 0);
 		data.put("msg", "");
-		data.put("count", 1000);
+		data.put("count", list.size());
 		data.put("data", list);
-		/*System.out.println(data);*/
 		
 		Gson gson = new Gson();
-		System.out.println(gson.toJson(data));
+		/*System.out.println(gson.toJson(data));*/
 		
 		response.setContentType("text/json");
 		response.getWriter().write(gson.toJson(data));

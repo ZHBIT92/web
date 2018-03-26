@@ -32,37 +32,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <hr class="layui-bg-green">
 </div>
 
-<form class="layui-form layui-form-pane" action="">
+<form class="layui-form layui-form-pane" action="AddUser">
     <div class="layui-form-item">
         <label class="layui-form-label">登录名</label>
         <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="请输入登录名" autocomplete="off" class="layui-input">
+            <input type="text" name="username" lay-verify="username" placeholder="请输入登录名" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">密码</label>
         <div class="layui-input-inline">
-            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-mid layui-word-aux">辅助文字</div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">权限</label>
         <div class="layui-input-block">
-            <select name="power" lay-verify="required">
+            <select name="power" lay-verify="power">
                 <option value=""></option>
                 <option value="0">高</option>
                 <option value="1">中</option>
                 <option value="2">低</option>          
             </select>
-        </div>
-    </div>
-    <div class="layui-form-item" pane>
-        <label class="layui-form-label">复选框</label>
-        <div class="layui-input-block">
-            <input type="checkbox" name="like[write]" title="写作">
-            <input type="checkbox" name="like[read]" title="阅读" checked>
-            <input type="checkbox" name="like[dai]" title="发呆">
         </div>
     </div>
     <div class="layui-form-item" pane>
@@ -75,12 +67,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="layui-form-item layui-form-text">
     	<label class="layui-form-label">文本域</label>
     	<div class="layui-input-block">
-      	<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+      	<textarea name="text" placeholder="请输入内容" class="layui-textarea" ></textarea>
     	</div>
   	</div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="add">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
@@ -99,23 +91,24 @@ layui.use(['form', 'layedit', 'laydate'], function(){
   
   //自定义验证规则
   form.verify({
-    title: function(value){
+    username: function(value){
       if(value.length < 5){
         return '标题至少得5个字符啊';
       }
     }
     ,pass: [/(.+){6,12}$/, '密码必须6到12位']
-    ,content: function(value){
-      layedit.sync(editIndex);
+    ,power: function(value){
+      if(value==null){
+        return '权限不能为空';
+      }
     }
   });
   
   //监听提交
-  form.on('submit', function(data){
+  form.on('submit(add)', function(data){
     layer.alert(JSON.stringify(data.field), {
       title: '最终的提交信息'
     })
-    return false;
   });
   
 });

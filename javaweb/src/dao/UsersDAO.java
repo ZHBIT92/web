@@ -28,6 +28,9 @@ public class UsersDAO {
 				user.setUserid(rs.getInt("userid"));
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("password"));
+				user.setPower(rs.getInt("power"));
+				user.setSex(rs.getString("sex"));
+				user.setText(rs.getString("text"));
 				list.add(user);// 把一个用户的信息加入集合list
 			}
 			return list; // 返回集合。
@@ -103,6 +106,30 @@ public class UsersDAO {
 		}   
    }
    
+   public boolean addUser(Users user) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		boolean flag = false;	
+		try {
+			conn = DBHelper.getConnection();  //获取连接对象
+			String sql = "insert into systemuser(username,password,power,sex,text)"+"values(?,?,?,?,?)";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user.getUsername());
+			stmt.setString(2, user.getPassword());
+			stmt.setInt(3, user.getPower());
+			stmt.setString(4, user.getSex());
+			stmt.setString(5, user.getText());
+			int i = stmt.executeUpdate(); //发送sql并返回执行成功的记录的条数 int	
+			flag = true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			flag = false;
+		}
+		return flag;
+	}
+   
    //修改用户的密码
    public int updateUserPassWord(Users  user) {
 		int a=0;
@@ -110,8 +137,8 @@ public class UsersDAO {
 		String sql = "update systemuser set password=? where username=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user.getPassword());
-			pstmt.setString(2, user.getUsername());
+			pstmt.setString(1, user.getUsername());
+			pstmt.setString(2, user.getPassword());
 			a= pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
