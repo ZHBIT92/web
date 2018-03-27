@@ -63,6 +63,7 @@ String username1=(String)session.getAttribute("username");
             <input type="submit" value="登录" > 
             <input type="button" value="重置" onclick="reset()">
 			<input type="hidden" id="refreshed" value="no"> 
+			<span>用户名admin 密码123 需连接数据库使用，sql文件已给</span>
 </form></div>
 </div>
 </body>

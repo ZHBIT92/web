@@ -29,8 +29,6 @@ public class AddUserServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Student(stId,stName,stSex,stAge,stTel,stDept,stAddress)
-		response.setContentType("text/html;charset=utf-8");//解决的是servlet页面显示的乱码 
-		request.setCharacterEncoding("utf-8");//解决post方式参数传递的参数乱码  
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -39,7 +37,7 @@ public class AddUserServlet extends HttpServlet {
 		String text = request.getParameter("text");
 		Users user = new Users(username, password, power, sex, text);
 		
-		System.out.println("%s"+user);
+		/*System.out.println("%s"+user);*/
 		UsersDAO userdao = new UsersDAO();
 		boolean flag = userdao.addUser(user);
 		

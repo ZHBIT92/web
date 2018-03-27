@@ -44,8 +44,6 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=utf-8");//解决的是servlet页面显示的乱码 
-		request.setCharacterEncoding("utf-8");//解决post方式参数传递的参数乱码  
 		
 		UsersDAO dao=new UsersDAO();
 		List list = dao.getAllItems();

@@ -38,9 +38,7 @@ public class LoginServlet extends HttpServlet {
 
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");//解决的是servlet页面显示的乱码 
-		request.setCharacterEncoding("utf-8");//解决post方式参数传递的参数乱码 	
+			throws ServletException, IOException {	
 		HttpSession session=request.getSession(); //在servlet中使用session要重定义
 		
 		String username=request.getParameter("username").trim();//获取username并去掉空格

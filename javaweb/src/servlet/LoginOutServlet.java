@@ -27,8 +27,6 @@ public class LoginOutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=utf-8");//解决的是servlet页面显示的乱码 
-		request.setCharacterEncoding("utf-8");//解决post方式参数传递的参数乱码 	
 		// false代表：防止创建session对象，只从request中获取session。
 		HttpSession session = request.getSession(false);   
         session.removeAttribute("username");  

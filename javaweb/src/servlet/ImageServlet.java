@@ -33,8 +33,6 @@ public class ImageServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");//解决的是servlet页面显示的乱码 
-		request.setCharacterEncoding("utf-8");//解决post方式参数传递的参数乱码 	
 		
 		//绘制一个长68，宽22的矩形
 		BufferedImage bi=new BufferedImage(68, 22, BufferedImage.TYPE_INT_RGB);

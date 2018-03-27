@@ -130,6 +130,25 @@ public class UsersDAO {
 		return flag;
 	}
    
+   public boolean delUser(int id) {
+		boolean flag = false;
+		Connection conn = null;
+		String sql = "delete from systemuser where userid=?";
+		try {
+			conn = DBHelper.getConnection();  //获取连接对象
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+			if (psmt.executeUpdate() > 0) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+   
    //修改用户的密码
    public int updateUserPassWord(Users  user) {
 		int a=0;
