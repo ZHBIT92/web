@@ -1,0 +1,33 @@
+/* CSS Document */
+
+body{
+  margin:0 auto;
+  padding:0;
+  box-sizing: border-box;
+  font: 18px Arial,sans-serif;
+  background-image:url(pic2.jpg);
+  background-size:100%;
+  background-repeat:no-repeat;
+  background-position:top;
+}
+
+#login{
+  position:absolute;
+  width:380px;
+  height:230px;
+  text-align:center;
+  border:4px solid green;
+  white-space:nowrap;
+}
+
+#form{
+  margin:0 auto;
+  padding:0;
+  position:relative;
+	top:15px;
+	}
+
+#password{
+	position:relative;
+	left:4px;
+	}

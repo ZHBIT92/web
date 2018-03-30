@@ -1,0 +1,222 @@
+﻿/*body{*/
+	/*margin:0;*/
+	/*padding:0;*/
+	/*font-family: 'Lato',sans-serif;*/
+	/*background: #fff;*/
+	/*overflow-x: auto;*/
+/*}*/
+*{
+
+	margin:0;
+	padding:0;;
+}
+
+.big-div{
+	background-color:#fff;
+	overflow:auto;
+	overflow-x:hidden;
+	width:100%;
+}
+
+.header{
+	width:100%;
+	height:40%;
+}
+
+.img01{
+	width:100%;
+	height:100%;
+}
+
+.nav{
+	width:100%;
+	height:5%;
+
+
+}
+.nav ul{
+	/*width: auto;*/
+	height: 38px;
+	padding: 10px;
+	margin:10px 100px;
+	/*margin-top: 0px;*/
+	/*margin-right: auto;*/
+	/*margin-bottom: 0px;*/
+	/*margin-left: 120px;*/
+	text-align:right;
+}
+.nav ul li{ /*让li元素左浮动*/
+	display:inline-block;
+
+	
+}
+.nav ul li a{
+	width: 140px; /*设置元素为120像素*/
+	height: 40px;
+	line-height: 28px;/*设置元素背景为白色*/
+	color: #364356;
+	font-family: 'Raleway',sans-serif;
+	font-size: 24px;
+	display: block;
+	text-align: center;/*设置文字在block居中*/
+	text-decoration: none;/*去掉下划线*/
+	background-color: #fff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.nav ul li a:hover{/*鼠标划过时执行的代码*/
+	width: 140px;
+	height: 40px;
+	background: #fff;
+	color:red;
+	/*line-height: 28px;*/
+}
+/*.top-menu h4{
+	font-family: 'Raleway',sans-serif;
+	font-size: 30px;
+	width: 300px;
+	color:#364356;
+	float: left;
+	font-weight: 900;
+	margin:14px 0 0 0;
+}
+/*.top-menu ul{
+	float:right;
+	margin-bottom: 0;
+}
+.top-menu ul li{
+	display: inline-block;
+}*/
+#main{
+	display: block;
+}
+.content{
+	background: #f6f5f7;
+	padding: 3% 0;
+	position: relative;
+}
+.content h3{
+	color:#364356;
+	text-align: center;
+	font-family: 'Lato',sans-serif;
+	font-size:30px;
+	letter-spacing:1px;
+	word-spacing:2px;
+	position: relative;
+	margin:0;
+}
+
+.content b{
+	display: block;
+	background: #e9e7e7;
+	min-height: 1px;
+	width:11%;
+	position: absolute;
+	left: 45%;
+	bottom: 75%;
+	margin-bottom:0;
+}
+.about{
+	position: relative;
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 54px;
+}
+.about h4{
+	color:#4f4f4f;
+	font-family: '华文行楷',sans-serif;
+	font-size: 30px;
+	padding-left: 15%;
+}
+.about label{
+	display: block;
+	background: #e9e7e7;
+	min-height: 1px;
+	width: 40%;
+	margin:8px 0 11px 0;
+}
+.about p{
+	color:#8e8e8e;
+	font-family: '幼圆';
+	text-indent: 2em;
+	margin-left: 10%;
+	margin-right: 50%;
+	font-size: 20px
+}
+.about a{
+	background: url(../images/dwn.png) no-repeat ;
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	bottom: -12%;
+	left:48%;
+	padding: 0px;
+}
+
+/*3D轮播图片位置*/
+.container {
+	position: absolute;
+	width: 550px;
+	height: 470px;
+	overflow: hidden;
+	left: 738px;
+	top: 216px;
+}
+
+.blog{
+	background: #fff;
+	text-align: center;
+}
+
+.contact{
+	background: #fff;
+	padding: 3% 0;
+	position: relative;	
+}
+.contact p{
+	padding-top:2em;
+	padding-bottom: 1em;
+	color:#a0a0a0;
+	font-size: 20px;
+	width: 37%;
+	margin: 0 auto;
+	line-height: 1.8em;
+}
+.contact form input[type = "text"],.contact form textarea{
+	display: block;
+	width: 30%;
+	padding: 5px;
+	margin-left:35%;
+	margin-bottom: 1.2em;
+	border: 1px solid #364356;
+	font-size: 20px;
+	font-style: italic;
+	color:#a0a0a0;
+	outline: none;
+}
+.contact form input[type = "text"]:hover,.contact form textarea:hover{
+	border:1px solid #ff6d6b;
+}
+.contact form textarea{
+	height: 100px;
+	resize:none;
+}
+.contact form input[type = "submit"]:hover{
+	color:#364356;
+}
+.contact form input[type = "submit"]{
+	background: #fff;
+	border: 1px solid #efefef;
+	color: #d2d2d2;
+	outline: none;
+	border-bottom: 5px solid #f6f5f7;
+	padding: 0.7em 3em;
+	font-size: 13px;
+	margin-top: 1em;
+	border-radius: 5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+}
