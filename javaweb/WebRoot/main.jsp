@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,37 +36,8 @@ String username=(String)session.getAttribute("username");
 
 	<jsp:include page="common/head.jsp"></jsp:include>
 	<jsp:include page="common/left.jsp"></jsp:include>
+    <jsp:include page="common/body.jsp"></jsp:include>
     
-    <div class="layui-body" style="bottom: 0px;">
-        <div style="padding-left: 15px">
-            <!-- 内容主体区域 -->
-            <div class="layui-tab" lay-allowClose="true" lay-filter="tab-switch">
-                <ul class="layui-tab-title">
-                    <li class="layui-this" >首页</li>
-                </ul>
-                <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
-                        	内容1
-<h1>分IP统计</h1>
-
-  <table border="1" width="60%">
-    <c:forEach items="${applicationScope.map }" var="entry">
-        <tr>
-            <th>ip</th>
-            <th>数量</th>
-        </tr>
-        <tr>
-            <td>${entry.key }</td>
-            <td>${entry.value }</td>
-            
-        </tr>
-    </c:forEach>
-    </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
 </div>
 
